@@ -3,17 +3,17 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
 
-// app.get('/', function(req, res) {
+app.get('/', function(req, res) {
     
-//    res.sendfile('user_1.html');
+   res.sendfile('user_1.html');
 
    
-// });
-// app.get('/2', function(req, res) {
+});
+app.get('/2', function(req, res) {
     
-//   res.sendfile('user_2.html');
+  res.sendfile('user_2.html');
 
-// });
+});
 
 
 
