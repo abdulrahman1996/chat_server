@@ -16,29 +16,23 @@
 <script src="/socket.io/socket.io.js"></script>
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 <script>
-  var socket = io.connect('http://localhost:3000/');
-      socket.emit('join', {id: "ahmed"});
-    $(function () {
-      $('form').submit(function(){
-        var data = new Object();
-        data.to = "abdoo"; 
-        data.from="ahmed";
-        data.msg = $('#m').val();
-        socket.emit('chat', data);
-        $('#m').val('');
-        return false;
-      });
-
-      socket.on('chat', function(data){
-        $('#messages').append($('<li>').text(data.msg + data.from));
-         
-      });
-    });
-  </script>
+        $(function () {
+          var converation_id = "2";
+          $('form').submit(function(){
+            var socket = io(converation_id);
+            socket.emit('chat message', $('#m').val());
+            $('#m').val('');
+            return false;
+          });
+          socket.on('chat message', function(msg){
+            $('#messages').append($('<li>').text(msg));
+          });
+        });
+      </script>
   <body>
     <ul id="messages"></ul>
     <form action="">
-      <input id="m" autocomplete="on" /><button>Send</button>
+      <input id="m" autocomplete="off" /><button>Send</button>
     </form>
   </body>
 </html>
