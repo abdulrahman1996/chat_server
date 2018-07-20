@@ -17,6 +17,7 @@
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 <script>
   var socket = io.connect('http://localhost:3000/');
+  
       socket.emit('join', {id: "abdoo"});
     $(function () {
       $('form').submit(function(){
