@@ -1,9 +1,9 @@
+var app = require('express')();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
-var port = process.env.port || 3000;
-var express = require('express');
-var app = express();
-var server = app.listen(port);
-var io = require('socket.io').listen(server);
+
+
 
 
 app.get('/', function(req, res) {
@@ -35,4 +35,9 @@ io.sockets.on('connection', function (socket) {
 
 
 
-//http.listen(process.env.PORT);‏ 
+
+
+var port = process.env.port || 3000;  
+http.listen(port, function() {
+  
+});
